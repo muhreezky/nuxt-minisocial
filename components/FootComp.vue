@@ -21,8 +21,8 @@ export default {
     <div class="d-flex flex-column" style="gap: 17px">
       <div class="d-flex flex-column">
         <b class="ms-4">Links</b>
-        <div v-for="link in links" :key="link[0]" class="d-flex flex-column justify-center items-center">
-          <a target="_blank" :href="link[0]">{{ link[1] }}</a>
+        <div class="d-flex flex-column justify-center items-center">
+          <a v-for="link in links" :key="link[0]"  target="_blank" :href="link[0]">{{ link[1] }}</a>
         </div>
       </div>
       <div class="d-flex align-center caption">
@@ -37,6 +37,7 @@ export default {
 
 <style>
   a {
+    -webkit-text-decoration: none;
     text-decoration: none;
     color: #efefef !important;
   }
