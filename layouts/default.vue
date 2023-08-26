@@ -9,22 +9,22 @@
       </v-app-bar-title>
     </v-app-bar>
     <v-navigation-drawer v-model="drawerOpen" app>
-    <v-list-item>
-      <v-list-item-content>
-        <v-list-item-title class="text-h5">
-          Mau ke mana?
-        </v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-    <v-divider />
-    <v-list dense nav>
-      <v-list-item v-for="link in links" :key="link[0]" :to="link[0]" nuxt>
+      <v-list-item>
         <v-list-item-content>
-          <v-list-item-title>{{ link[1] }}</v-list-item-title>
+          <v-list-item-title class="text-h5">
+            MiniSocial
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
+      <v-divider />
+      <v-list dense nav>
+        <v-list-item v-for="link in links" :key="link[0]" :to="link[0]" nuxt>
+          <v-list-item-content>
+            <v-list-item-title>{{ link[1] }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
     <v-main>
       <v-container>
         <Nuxt />
