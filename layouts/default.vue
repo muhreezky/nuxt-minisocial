@@ -27,3 +27,13 @@ export default {
   }
 }
 </script>
+
+<style>
+  .v-application--wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+</style>

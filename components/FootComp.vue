@@ -5,6 +5,11 @@ export default {
     return {
       icons: [
         "mdi"
+      ],
+      links: [
+        ["https://github.com/muhreezky", "Github"],
+        ["https://instagram.com/muh.reezky", "Instagram"],
+        ["https://linkedin.com/in/muhreezky", "Linkedin"]
       ]
     }
   }
@@ -12,21 +17,21 @@ export default {
 </script>
 
 <template>
-  <v-footer absolute elevation="3">
-    <v-row>
-      <v-col class="d-flex flex-column align-center justify-center">
-        &copy; 2023 Muhammad Rizkiansyah <br />
-        All Rights Reserved
-      </v-col>
-      <v-col class="text-center">
-        <b class="d-flex items-center justify-center mb-3">Links</b>
-        <div class="d-flex flex-column">
-          <a href="https://github.com/muhreezky">Github</a>
-          <a href="https://instagram.com/muh.reezky">Instagram</a>
-          <a href="https://linkedin.com/in/muhreezky">Linkedin</a>
+  <v-footer class="mt-auto" elevation="0">
+    <div class="d-flex flex-column" style="gap: 17px">
+      <div class="d-flex flex-column">
+        <b class="ms-4">Links</b>
+        <div v-for="link in links" :key="link[0]" class="d-flex flex-column justify-center items-center">
+          <a target="_blank" :href="link[0]">{{ link[1] }}</a>
         </div>
-      </v-col>
-    </v-row>
+      </div>
+      <div class="d-flex align-center caption">
+        &copy; 2023 Muhammad Rizkiansyah. All Rights Reserved <br />
+        Muhammad Rizkiansyah atau MuhReezky adalah seorang web developer yang sedang
+        banyak mempelajari ilmu-ilmu praktikal terutama dalam bidang aplikasi web.
+        Aplikasi ini adalah contoh dari bahan belajarnya.
+      </div>
+    </div>
   </v-footer>
 </template>
 

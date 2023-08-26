@@ -1,14 +1,18 @@
 <template>
   <v-card>
+    <v-img 
+      max-width="100%"
+      alt="Ekspresi dan Sosialisasikan" 
+      max-height="300px"
+      :src="require('~/assets/mountain-image.jpg')"
+    >
+  </v-img>
     <v-card-title>
       Sosialiasikan diri anda di internet
     </v-card-title>
     <v-card-subtitle>
-      Aplikasi Social Media dari MuhReezky
+      Mulailah mengenal satu sama lain, dari berbagai penjuru dunia
     </v-card-subtitle>
-    <v-card-text>
-      Ayo mulai sekarang, gratis untuk selamanya
-    </v-card-text>
     <v-card-actions>
       <v-btn block color="primary" accent="3">
         Mulai
