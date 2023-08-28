@@ -16,11 +16,14 @@ export default {
 </script>
 
 <template>
-  <v-footer class="mt-auto" elevation="0">
+  <v-footer app class="mt-auto" elevation="0">
     <v-row justify="center" no-gutters>
       <v-btn
         v-for="link in links"
         :key="link[0]"
+        rounded
+        link
+        small
         target="_blank"
         :href="link[0]"
         class="my-3"
@@ -29,8 +32,8 @@ export default {
         {{ link[1] }}
       </v-btn>
       <v-col cols="12">
-        <div class="small">
-          &copy; 2023 Muhammad Rizkiansyah. All Rights Reserved <br />
+        &copy; 2023 Muhammad Rizkiansyah. All Rights Reserved <br />
+        <div class="caption">
           Muhammad Rizkiansyah atau MuhReezky adalah seorang web developer yang
           sedang banyak mempelajari ilmu-ilmu praktikal terutama dalam bidang
           aplikasi web. Aplikasi ini adalah contoh dari bahan belajarnya.
@@ -44,6 +47,5 @@ export default {
 a {
   -webkit-text-decoration: none;
   text-decoration: none;
-  color: #efefef !important;
 }
 </style>

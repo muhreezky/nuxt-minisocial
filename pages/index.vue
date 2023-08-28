@@ -8,7 +8,7 @@
       :src="imageLink"
     />
     <v-card-title>
-      Sosialiasikan diri anda di internet
+      Sosialisasikan diri anda di internet
     </v-card-title>
     <v-card-subtitle>
       Mulailah mengenal satu sama lain, dari berbagai penjuru dunia

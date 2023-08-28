@@ -1,12 +1,12 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawerOpen = !drawerOpen" />
       <v-app-bar-title>
-        <nuxt-link style="color: #efefef; text-decoration: none" to="/">
-          {{ title }}
-        </nuxt-link>
+        {{ title }}
       </v-app-bar-title>
+      <v-spacer />
+      <dark-toggler />
     </v-app-bar>
     <v-navigation-drawer v-model="drawerOpen" app elevation="0">
       <v-list-item>
@@ -26,7 +26,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-main>
-      <v-container>
+      <v-container fluid>
         <Nuxt />
       </v-container>
     </v-main>
@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .v-application--wrap {
     min-height: 100vh;
     display: flex;
