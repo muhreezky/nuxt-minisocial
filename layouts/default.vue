@@ -12,7 +12,7 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h5">
-            App Menu
+            {{ title }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -45,7 +45,8 @@ export default {
       links: [
         ["/", "Home"],
         ["/login", "Login"],
-        ["/register", "Register"]
+        ["/register", "Register"],
+        ["/about", "Tentang"]
       ]
     }
   }

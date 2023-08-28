@@ -4,7 +4,8 @@
       max-width="100%"
       alt="Ekspresi dan Sosialisasikan" 
       max-height="300px"
-      :src="require('~/assets/mountain-image.jpg')"
+      :lazy-src="imageLink"
+      :src="imageLink"
     />
     <v-card-title>
       Sosialiasikan diri anda di internet
@@ -23,5 +24,10 @@
 <script>
 export default {
   name: 'IndexPage',
+  data () {
+    return {
+      imageLink: require('~/assets/mountain-image.jpg')
+    }
+  }
 }
 </script>
