@@ -8,11 +8,11 @@
         </nuxt-link>
       </v-app-bar-title>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawerOpen" app>
+    <v-navigation-drawer v-model="drawerOpen" app elevation="0">
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h5">
-            MiniSocial
+            App Menu
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -58,6 +58,4 @@ export default {
     display: flex;
     flex-direction: column;
   }
-
-  
 </style>

@@ -1,12 +1,11 @@
 <template>
   <v-card>
-    <v-img 
+    <v-img
       max-width="100%"
       alt="Ekspresi dan Sosialisasikan" 
       max-height="300px"
       :src="require('~/assets/mountain-image.jpg')"
-    >
-  </v-img>
+    />
     <v-card-title>
       Sosialiasikan diri anda di internet
     </v-card-title>
