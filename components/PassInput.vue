@@ -2,9 +2,7 @@
   <v-text-field
     :append-icon="show ? 'mdi-eye-off' : 'mdi-eye'"
     :type="show ? 'text' : 'password'"
-    :placeholder="placeholder"
-    :label="label"
-    :name="name"
+    v-bind="{...$props, ...$attrs}"
     @click:append="show = !show"
   />
 </template>
