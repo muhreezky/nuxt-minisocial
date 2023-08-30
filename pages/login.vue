@@ -3,7 +3,7 @@
     <v-card-title>
       Login
     </v-card-title>
-    <form @submit.prevent="false">
+    <form @submit.prevent="login">
       <v-card-text>
         <v-text-field 
           v-model="form.email.value"
@@ -58,7 +58,14 @@
     },
     methods: {
       async login () {
-        await this.$auth.loginWith('local')
+        await this.$auth.loginWith('local', {
+          data: {
+            email: this.email,
+            password: this.password
+          }
+        })
+
+        this.$router.push('/');
       }
     }
   }
