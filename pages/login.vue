@@ -47,6 +47,8 @@
             value: '',
             rules: [
               v => !!v || 'Password wajib diisi',
+              v => (/^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*?&._])[a-z\d$@$!%*?&._]{6,12}$/i).test(v)
+                || 'Password harus ada angka, huruf, dan simbol'
             ]
           }
         }
@@ -54,7 +56,6 @@
     },
     methods: {
       async login () {
-
       }
     }
   }
