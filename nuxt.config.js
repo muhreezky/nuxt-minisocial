@@ -1,6 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  env: {
+    baseUrl: process.env.ENDPOINT || 'http://localhost:5000'
+  },
+  
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - MiniSocial',
@@ -37,12 +41,13 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: process.env.baseUrl,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -51,6 +56,18 @@ export default {
       name: 'MiniSocial App',
       lang: 'en',
     },
+  },
+  
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'login', method: 'post', propertyName: 'data.token' },
+          user: { url: 'me', method: 'get', propertyName: 'data' },
+          logout: false
+        }
+      }
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
