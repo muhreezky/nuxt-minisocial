@@ -55,10 +55,10 @@
       async login () {
         await this.$auth.loginWith('local', {
           data: {
-            email: this.email,
-            password: this.password
+            email: this.form.email.value,
+            password: this.form.password.value
           }
-        })
+        });
 
         this.$router.push('/');
       }
