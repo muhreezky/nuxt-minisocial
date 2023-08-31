@@ -17,7 +17,7 @@
           v-model="form.username.value"
           :rules="form.username.rules"
           label="Username"
-          placeholder="Ketik Username hanya boleh angka dan huruf"
+          placeholder="Username hanya boleh angka dan huruf"
           required
         />
         <pass-input
