@@ -8,7 +8,6 @@
         <v-text-field 
           v-model="form.email.value"
           name="email" 
-          type="email" 
           label="Email atau Username"
           placeholder="Masukkan alamat e-mail atau username anda"
           required 
@@ -31,7 +30,7 @@
 </template>
 
 <script>
-  import { emailRegex, passwordRegex } from '~/utils/regex';
+  import { emailRegex } from '~/utils/regex';
 
   export default {
     name: 'LoginPage',
@@ -47,11 +46,7 @@
           },
           password: {
             value: '',
-            rules: [
-              v => !!v || 'Password wajib diisi',
-              v => passwordRegex.test(v)
-                || 'Password harus ada angka, huruf, dan simbol'
-            ]
+            rules: [v => !!v || 'Password wajib diisi']
           }
         }
       }

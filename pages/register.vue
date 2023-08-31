@@ -3,7 +3,7 @@
     <v-card-title>
       Buat Akun
     </v-card-title>
-    <v-form @submit.prevent="register" ref="frm">
+    <v-form ref="frm" @submit.prevent="register">
       <v-card-text>
         <v-text-field
           v-model="form.email.value"
@@ -46,7 +46,7 @@ export default {
         value: '',
         rules: [
           v => !!v || 'E-mail harus diisi',
-          v => emailRegex.test(v) || 'Ini bukan alamat e-mail'
+          v => emailRegex.test(v) || 'Alamat e-mail harus valid'
         ]
       },
       username: {
@@ -69,13 +69,19 @@ export default {
   }),
   methods: {
     async register () {
-      this.$refs.form.validate();
-      console.log(this.form);
+      this.$refs.frm.validate();
       await this.$axios.post('/auth/register', {
-        email: this.email.value,
-        password: this.password.value,
-        username: this.username.value
+        email: this.form.email.value,
+        password: this.form.password.value,
+        username: this.form.username.value
       });
+
+      await this.$auth.loginWith('local', {
+        data: {
+          email: this.form.email.value,
+          password: this.form.password.value
+        }
+      })
 
       this.$router.push('/');
     }
