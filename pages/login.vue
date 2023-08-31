@@ -19,7 +19,6 @@
           placeholder="Masukkan password akun anda"
           required
         />
-        {{ loginData }}
       </v-card-text>
       <v-card-actions>
         <v-btn type="submit" block color="primary">
@@ -51,11 +50,6 @@
           }
         }
       };
-    },
-    computed: {
-      loginData () {
-        return JSON.stringify({ email: this.form.email.value, password: this.form.password.value });
-      }
     },
     methods: {
       async login () {
