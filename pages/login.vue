@@ -34,6 +34,8 @@
 
   export default {
     name: 'LoginPage',
+    middleware: 'auth',
+    auth: 'guest',
     data() {
       return {
         form: {
@@ -48,19 +50,24 @@
             value: '',
             rules: [v => !!v || 'Password wajib diisi']
           }
-        }
+        },
+        error: ''
       };
     },
     methods: {
       async login () {
-        await this.$auth.loginWith('local', {
-          data: {
-            email: this.form.email.value,
-            password: this.form.password.value
-          }
-        });
+        try {
+          await this.$auth.loginWith('local', {
+            data: {
+              email: this.form.email.value,
+              password: this.form.password.value
+            }
+          });
 
-        this.$router.push('/');
+          this.$router.push('/');
+        } catch (e) {
+          this.error = e.data.response.message;
+        }
       }
     }
   }

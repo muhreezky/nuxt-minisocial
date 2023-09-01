@@ -7,5 +7,6 @@
 <script>
 	export default {
 		name: 'DashboardPage',
+		middleware: 'auth'
 	}
 </script>

@@ -40,6 +40,8 @@ import { emailRegex, passwordRegex } from '~/utils/regex';
 
 export default {
   name: 'RegisterPage',
+  middleware: 'auth',
+  auth: 'guest',
   data: () => ({
     form: {
       email: {
