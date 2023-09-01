@@ -18,13 +18,19 @@
       </v-list-item>
       <v-divider />
       <v-list dense nav>
-        <v-list-item v-for="link in links" :key="link[0]" :to="link[0]" nuxt exact>
+        <v-list-item exact nuxt to="/">
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item>
+        <v-list-item v-for="link in listLinks" :key="link[0]" :to="link[0]" nuxt exact>
           <v-list-item-content>
             <v-list-item-title>{{ link[1] }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-if="$auth.loggedIn" href="#" @click.prevent="logout">
           <v-list-item-title>Logout</v-list-item-title>
+        </v-list-item>
+        <v-list-item exact nuxt to="/about">
+          <v-list-item-title>About</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -49,14 +55,22 @@ export default {
       drawerOpen: false,
       links: [
         ["/", "Home"],
-        ["/login", "Login"],
-        ["/register", "Register"],
         ["/about", "Tentang"]
+      ],
+      authedLinks: [
+        ["/me", "Dashboard"]  
+      ],
+      guestLinks: [
+        ["/login", "Login"],
+        ["/register", "Register"], 
       ]
     }
   },
   computed: {
-    ...mapGetters(['isAuthenticated'])
+    ...mapGetters(['isAuthenticated']),
+    listLinks () {
+      return this.$auth.loggedIn ? this.authedLinks : this.guestLinks;
+    }
   },
   methods: {
     async logout() {
