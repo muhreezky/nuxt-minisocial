@@ -1,6 +1,13 @@
 <template>
 	<div>
-		Dashboard Page
+		<v-card>
+			<v-card-title>
+				@{{ $auth.user?.username }}
+			</v-card-title>
+			<v-card-text>
+				
+			</v-card-text>
+		</v-card>
 	</div>
 </template>
 
