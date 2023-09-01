@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-  <v-footer app class="mt-auto" elevation="0">
+  <v-footer app class="mt-auto">
     <v-row justify="center" no-gutters>
       <v-btn
         v-for="link in links"

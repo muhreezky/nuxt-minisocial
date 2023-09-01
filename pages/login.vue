@@ -9,6 +9,7 @@
           v-model="form.email.value"
           name="email" 
           label="Email atau Username"
+          :rules="form.email.rules"
           placeholder="Masukkan alamat e-mail atau username anda"
           required 
         />
@@ -16,9 +17,13 @@
           v-model="form.password.value"
           name="password"
           label="Password"
+          :rules="form.password.rules"
           placeholder="Masukkan password akun anda"
           required
         />
+        <v-alert v-if="!!error" type="error" dismissible>
+          {{ error }}
+        </v-alert>
       </v-card-text>
       <v-card-actions>
         <v-btn type="submit" block color="primary">
@@ -30,8 +35,6 @@
 </template>
 
 <script>
-  import { emailRegex } from '~/utils/regex';
-
   export default {
     name: 'LoginPage',
     middleware: 'authenticated',
@@ -40,10 +43,7 @@
         form: {
           email: {
             value: '',
-            rules: [
-              v => !!v || 'E-mail wajib diisi',
-              v => emailRegex.test(v) || 'Alamat e-mail harus valid'
-            ]
+            rules: [v => !!v || 'Isi dengan E-mail atau Username']
           },
           password: {
             value: '',
@@ -65,9 +65,9 @@
 
           this.$router.push('/me');
         } catch (e) {
-          this.error = e.data.response.message;
+          this.error = 'Login gagal, mungkin data anda salah';
         }
       }
-    }
+    },
   }
 </script>

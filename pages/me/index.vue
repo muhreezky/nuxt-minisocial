@@ -1,14 +1,7 @@
 <template>
-	<div>
-		<v-card>
-			<v-card-title>
-				@{{ $auth.user?.username }}
-			</v-card-title>
-			<v-card-text>
-				
-			</v-card-text>
-		</v-card>
-	</div>
+	<v-container fluid>
+		<profile-card followers="0" following="0" posts="0" />
+	</v-container>
 </template>
 
 <script>

@@ -1,14 +1,14 @@
 <template>
-	<div>
+	<Fragment>
 		<v-app-bar app>
-			<v-app-bar-nav-icon @click="drawerOpen = !drawerOpen" />
+			<!-- <v-app-bar-nav-icon @click="drawerOpen = !drawerOpen" /> -->
 			<v-app-bar-title>
 				{{ title }}
 			</v-app-bar-title>
 			<v-spacer />
 			<dark-toggler />
 		</v-app-bar>
-		<v-navigation-drawer v-model="drawerOpen" app elevation="0">
+		<v-navigation-drawer v-model="drawerOpen" app permanent mini-variant expand-on-hover>
 			<v-list-item>
 				<v-list-item-content>
 					<v-list-item-title class="text-h5">
@@ -44,12 +44,17 @@
 				</v-list-item>
 			</v-list>
 		</v-navigation-drawer>
-	</div>
+	</Fragment>
 </template>
 
 <script>
+import { Fragment } from 'vue-fragment';
+
 export default {
 	name: 'NavComp',
+	components: {
+		Fragment
+	},
 	data() {
 		return {
 			menuOpen: false,
