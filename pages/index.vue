@@ -1,12 +1,12 @@
 <template>
   <v-card>
-    <v-img
+    <!-- <v-img
       max-width="100%"
       alt="Ekspresi dan Sosialisasikan" 
       max-height="300px"
       :lazy-src="imageLink"
       :src="imageLink"
-    />
+    /> -->
     <v-card-title>
       Sosialisasikan diri anda di internet
     </v-card-title>
