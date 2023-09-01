@@ -34,8 +34,7 @@
 
   export default {
     name: 'LoginPage',
-    middleware: 'auth',
-    auth: 'guest',
+    middleware: 'authenticated',
     data() {
       return {
         form: {
@@ -64,7 +63,7 @@
             }
           });
 
-          this.$router.push('/');
+          this.$router.push('/me');
         } catch (e) {
           this.error = e.data.response.message;
         }

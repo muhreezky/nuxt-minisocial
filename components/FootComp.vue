@@ -4,11 +4,11 @@ export default {
   data() {
     return {
       links: [
-        ['https://github.com/muhreezky', 'Github'],
-        ['https://instagram.com/muh.reezky', 'Instagram'],
-        ['https://linkedin.com/in/muhreezky', 'Linkedin'],
-        ['https://trakteer.id/muh_reezky', 'Trakteer'],
-        ['https://ko-fi.com/muh_reezky', 'Support Me']
+        ['https://github.com/muhreezky', 'Github', 'mdi-github'],
+        ['https://instagram.com/muh.reezky', 'Instagram', 'mdi-instagram'],
+        ['https://linkedin.com/in/muhreezky', 'Linkedin', 'mdi-linkedin'],
+        ['https://trakteer.id/muh_reezky', 'Trakteer', 'mdi-currency-usd'],
+        ['https://ko-fi.com/muh_reezky', 'Support Me', 'mdi-coffee']
       ],
     }
   },
@@ -29,6 +29,9 @@ export default {
         class="my-3"
         text
       >
+        <v-icon>
+          {{ link[2] }}
+        </v-icon>
         {{ link[1] }}
       </v-btn>
       <v-col cols="12">

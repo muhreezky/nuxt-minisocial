@@ -40,8 +40,7 @@ import { emailRegex, passwordRegex } from '~/utils/regex';
 
 export default {
   name: 'RegisterPage',
-  middleware: 'auth',
-  auth: 'guest',
+  middleware: 'authenticated',
   data: () => ({
     form: {
       email: {
@@ -85,7 +84,7 @@ export default {
         }
       })
 
-      this.$router.push('/');
+      this.$router.push('/me');
     }
   }
 }

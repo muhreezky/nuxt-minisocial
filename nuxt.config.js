@@ -1,5 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
+const desc = 'Aplikasi Social Media Sederhana dari MuhReezky';
+
 export default {
   env: {
     baseUrl: process.env.ENDPOINT || 'http://localhost:5000/api'
@@ -7,13 +9,18 @@ export default {
   
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - MiniSocial',
-    title: 'Home',
+    titleTemplate: '%s | MiniSocial',
+    title: 'App',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Aplikasi Social Media Sederhana dari MuhReezky' },
+      { hid: 'description', name: 'description', content: desc },
       { name: 'format-detection', content: 'telephone=no' },
+      { name: 'robots', content: 'index,follow' },
+      { name: 'og:title', content: 'MiniSocial' },
+      { name: 'og:url', content: 'https://minisocial.vercel.app' },
+      { name: 'og:site_name', content: 'MiniSocial App' },
+      { name: 'og:description', content: desc }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
