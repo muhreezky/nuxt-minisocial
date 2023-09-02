@@ -6,7 +6,6 @@ export default {
   env: {
     baseUrl: process.env.ENDPOINT || 'http://localhost:5000/api'
   },
-  
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s | MiniSocial',

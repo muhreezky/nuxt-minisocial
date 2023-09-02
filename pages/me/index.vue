@@ -1,6 +1,6 @@
 <template>
 	<v-container fluid>
-		<profile-card followers="0" following="0" posts="0" />
+		<profile-card :username="$auth.user.username" followers="0" following="0" posts="0" />
 	</v-container>
 </template>
 
