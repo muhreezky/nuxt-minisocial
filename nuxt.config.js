@@ -34,6 +34,11 @@ export default {
         href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css', 
         as: 'style',
         onload: 'this.onload = null; this.rel = `stylesheet`;'
+      },
+      {
+        rel: 'preload',
+        href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/fonts/materialdesignicons-webfont.woff2?v=7.2.96',
+        as: 'font'
       }
     ],
   },
