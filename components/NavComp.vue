@@ -1,7 +1,6 @@
 <template>
 	<Fragment>
 		<v-app-bar app>
-			<!-- <v-app-bar-nav-icon @click="drawerOpen = !drawerOpen" /> -->
 			<v-app-bar-title>
 				{{ title }}
 			</v-app-bar-title>
