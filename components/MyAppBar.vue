@@ -11,8 +11,10 @@
 <script>
 	export default {
 		name: 'MyAppBar',
-		data: () => ({
-			title: 'MiniSocial'
-		})
+		data() {
+			return {
+				title: 'MiniSocial'
+			}
+		}
 	}
 </script>
