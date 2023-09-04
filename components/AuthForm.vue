@@ -6,7 +6,7 @@
 				:rules="rules.email"
 				label="Email"
 				placeholder="Alamat E-mail yang valid"
-				type="email"
+				:type="register ? 'email' : 'text'"
 				required
 			/>
 			<v-text-field
@@ -23,12 +23,14 @@
 				label="Password"
 				placeholder="Masukkan Password (mengandung huruf, angka, dan simbol)"
 				name="password"
+				required
 			/>
 			<pass-input
 				v-if="register"
 				:rules="rules.confPass"
 				label="Confirm Password"
 				placeholder="Ketik ulang password anda di sini"
+				required
 			/>
 			<v-alert v-if="!!error" type="error" dismissible>
 				{{ error }}
@@ -56,14 +58,14 @@ export default {
 			error: '',
 			rules: {
 				email: [
-					(v) => !!v || 'E-mail harus diisi',
-					(v) => validateEmail(v),
+					(v) => !!v || 'Ini harus diisi',
+					(v) => this.register ? validateEmail(v) : true,
 				],
 				password: [
 					(v) => !!v || 'Password harus diisi',
 					(v) => validateMinLength(v, 6),
 					(v) => validateMaxLength(v, 15),
-					(v) => validatePassword(v)
+					(v) => this.register ? validatePassword(v) : true
 				],
 				username: [
 					(v) => !!v || 'Username harus diisi',
@@ -81,15 +83,15 @@ export default {
 		async registerForm() {
 			try {
 				await this.$axios.post('/auth/register', {
-					email: this.form.email.value,
-					password: this.form.password.value,
-					username: this.form.username.value,
+					email: this.email,
+					password: this.password,
+					username: this.username,
 				})
 
 				await this.$auth.loginWith('local', {
 					data: {
-						email: this.form.email.value,
-						password: this.form.password.value,
+						email: this.email,
+						password: this.password,
 					},
 				})
 
@@ -102,8 +104,8 @@ export default {
 			try {
 				await this.$auth.loginWith('local', {
 					data: {
-						email: this.form.email.value,
-						password: this.form.password.value,
+						email: this.email,
+						password: this.password,
 					},
 				});
 
