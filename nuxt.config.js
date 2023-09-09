@@ -67,6 +67,13 @@ export default {
     '@nuxtjs/auth'
   ],
 
+  publicRuntimeConfig: {
+    vgyKey: process.env.VGY_ME_KEY,
+    imgBBKey: process.env.IMGBB_KEY,
+    postImgKey: process.env.POSTIMG_TOKEN,
+    uploadSess: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308

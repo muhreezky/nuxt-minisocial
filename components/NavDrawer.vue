@@ -4,7 +4,6 @@
 		app
 		permanent
 		mini-variant
-		expand-on-hover
 	>
 		<v-list-item>
 			<v-list-item-content>

@@ -1,22 +1,26 @@
 <template>
-  <v-app dark>
-    <h1 v-if="error.statusCode === 404">
-      {{ pageNotFound }}
-    </h1>
-    <h1 v-else>
-      {{ otherError }}
-    </h1>
-    <div>
-      {{ error }}
-    </div>
-    <NuxtLink to="/"> Home page </NuxtLink>
-  </v-app>
+  <v-card dark>
+    <v-card-title class="d-flex justify-center align-center">
+      <h1 v-if="error.statusCode === 404">
+        {{ pageNotFound }}
+      </h1>
+      <h1 v-else>
+        {{ otherError }}
+      </h1>
+    </v-card-title>
+    <v-card-actions>
+      <NuxtLink to="/" style="width: 100%">
+        <v-btn color="primary" block>
+          Kembali
+        </v-btn>
+      </NuxtLink>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
 export default {
   name: 'EmptyLayout',
-  layout: 'empty',
   props: {
     error: {
       type: Object,
@@ -26,7 +30,7 @@ export default {
   data() {
     return {
       pageNotFound: 'Halaman tidak ada',
-      otherError: 'An error occurred',
+      otherError: 'Ada sesuatu yang tak beres',
     }
   },
   head() {
