@@ -25,6 +25,7 @@
 </template>
 
 <script>
+	const defaultImage = require('~/assets/default.jpg');
 	export default {
 		name: 'ImagePreview',
 		props: {
@@ -50,7 +51,7 @@
 				rules: [v => !!v || (this.maxSize && v.size < this.mbSize) || `Ukuran tidak boleh lebih dari ${this.maxSize} MB`],
 				files: [],
 				url: '',
-				defaultImage: require('~/assets/default.jpg')
+				defaultImage
 			}
 		},
 		computed: {

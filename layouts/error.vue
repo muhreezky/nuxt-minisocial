@@ -1,11 +1,8 @@
 <template>
   <v-card dark>
     <v-card-title class="d-flex justify-center align-center">
-      <h1 v-if="error.statusCode === 404">
-        {{ pageNotFound }}
-      </h1>
-      <h1 v-else>
-        {{ otherError }}
+      <h1>
+        {{ error.statusCode === 404 ? pageNotFound : otherError }}
       </h1>
     </v-card-title>
     <v-card-actions>

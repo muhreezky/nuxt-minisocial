@@ -29,7 +29,7 @@
 									</v-row>
 								</v-col>
 								<v-col v-if="user.id === $auth.user.id" cols="12">
-									<create-post />
+									<create-post :on-success="() => $fetch()" />
 								</v-col>
 							</v-row>
 						</v-card-text>

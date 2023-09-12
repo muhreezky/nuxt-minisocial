@@ -71,6 +71,7 @@ export default {
     vgyKey: process.env.VGY_ME_KEY,
     imgBBKey: process.env.IMGBB_KEY,
     postImgKey: process.env.POSTIMG_TOKEN,
+    pixeldrainKey: process.env.PIXELDRAIN_KEY,
     uploadSess: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
   },
 

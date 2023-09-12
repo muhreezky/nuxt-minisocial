@@ -42,32 +42,45 @@
 						</v-card-text>
 					</div>
 				</v-form>
-				{{ resultUpload }}
 			</v-card>
 		</v-dialog>
+		<loading-dialog :open="loading" />
 	</v-row>
 </template>
 
 <script>
 	export default {
 		name: 'CreatePost',
+		props: {
+			onSuccess: {
+				type: Function,
+				default: () => null
+			}
+		},
 		data() {
 			return {
 				openDialog: false,
-				resultUpload: ''
+				resultUpload: {},
+				caption: '',
+				loading: false
 			}
 		},
 		methods: {
 			async submitImage(e) {
+				this.loading = true;
 				const formData = new FormData(e.target);
-				formData.append('key', this.$config.imgBBKey);
-				// formData.append('upload_session', this.$config.uploadSess);
-				const data = await this.$axios.$post('https://api.imgbb.com/1/upload', formData, {
+				formData.append('userkey', this.$config.vgyKey);
+				const data = await this.$axios.$post('https://vgy.me/upload', formData, {
 					headers: {
-						'Content-Type': 'multipart/form-data'
+						'Content-Type': 'multipart/form-data',
 					}
 				});
-				this.resultUpload = data;
+				const { error, image } = data;
+				if (!error) {
+					await this.$axios.$post('/posts', { url: image, caption: this.caption });
+					this.onSuccess();
+				}
+				this.loading = false;
 			}
 		}
 	}
