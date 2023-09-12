@@ -70,16 +70,16 @@
 				this.loading = true;
 				const formData = new FormData(e.target);
 				formData.append('userkey', this.$config.vgyKey);
-				const data = await this.$axios.$post('https://vgy.me/upload', formData, {
-					headers: {
-						'Content-Type': 'multipart/form-data',
-					}
+				const res = await fetch('https://vgy.me/upload', {
+					method: 'POST',
+					body: formData
 				});
+				const data = await res.json();
 				const { error, image } = data;
 				if (!error) {
 					await this.$axios.$post('/posts', { url: image, caption: this.caption });
-					this.onSuccess();
 				}
+				this.onSuccess();
 				this.loading = false;
 			}
 		}
