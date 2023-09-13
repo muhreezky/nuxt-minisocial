@@ -13,8 +13,7 @@
 		</div>
 		<v-file-input 
 			ref="imgPrev"
-			:rules="rules"
-			accept="image/jpeg, image/jpg, image/png, image/webp"
+			accept="image/jpeg, image/jpg, image/png"
 			prepend-icon="mdi-image"
 			:label="label"
 			:name="name"
@@ -48,7 +47,6 @@
 		},
 		data() {
 			return {
-				rules: [v => !!v || (this.maxSize && v.size < this.mbSize) || `Ukuran tidak boleh lebih dari ${this.maxSize} MB`],
 				files: [],
 				url: '',
 				defaultImage

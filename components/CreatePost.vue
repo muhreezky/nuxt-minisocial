@@ -30,7 +30,8 @@
 							<v-btn
 								text
 								type="submit"
-								@click="openDialog = false"
+								:loading="loading"
+								:disabled="loading"
 							>
 								Kirim
 							</v-btn>
@@ -39,6 +40,7 @@
 					<div class="d-flex flex-column" style="min-height: 100vh">
 						<v-card-text class="pa-4">
 							<image-input name="file" />
+							<v-textarea v-model="caption" outlined label="Caption Postingan" />
 						</v-card-text>
 					</div>
 				</v-form>
@@ -62,17 +64,19 @@
 				openDialog: false,
 				resultUpload: {},
 				caption: '',
-				loading: false
+				loading: false,
 			}
 		},
 		methods: {
 			async submitImage(e) {
-				this.loading = true;
 				const formData = new FormData(e.target);
+				const file = formData.get('file');
+				if(!file.size) return;
+				this.loading = true;
 				formData.append('userkey', this.$config.vgyKey);
 				const res = await fetch('https://vgy.me/upload', {
 					method: 'POST',
-					body: formData
+					body: formData,
 				});
 				const data = await res.json();
 				const { error, image } = data;
@@ -80,6 +84,7 @@
 					await this.$axios.$post('/posts', { url: image, caption: this.caption });
 				}
 				this.onSuccess();
+				this.openDialog = false;
 				this.loading = false;
 			}
 		}
