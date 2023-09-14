@@ -37,6 +37,7 @@
 				</div>
 			</template>
 		</v-skeleton-loader>
+		<user-posts :username="username" />
 	</v-container>
 </template>
 
