@@ -9,7 +9,7 @@
 		>
 			<template #default>
 				<v-row
-					v-if="!isLoading && posts.length > 0"
+					v-if="!isLoading || posts.length > 0"
 					justify="center"
 					no-gutters
 				>
@@ -59,9 +59,6 @@ export default {
 			isError: false,
 		}
 	},
-	async fetch() {
-		await this.getPosts();
-	},
 	computed: {
 		loadButtonText() {
 			return this.isLoading
@@ -73,6 +70,9 @@ export default {
 		globalPosts() {
 			return this.$store.state.posts;
 		},
+	},
+	mounted() {
+		this.getPosts();
 	},
 	methods: {
 		...mapMutations(['addToPosts']),

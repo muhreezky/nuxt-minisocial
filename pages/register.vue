@@ -1,10 +1,5 @@
 <template>
-  <v-card>
-    <v-card-title>
-      Buat Akun
-    </v-card-title>
-    <auth-form register />
-  </v-card>
+  <auth-form register />
 </template>
 
 <script>

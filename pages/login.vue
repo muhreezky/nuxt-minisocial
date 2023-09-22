@@ -1,10 +1,5 @@
 <template>
-  <v-card>
-    <v-card-title>
-      Login
-    </v-card-title>
-    <auth-form />
-  </v-card>
+  <auth-form />
 </template>
 
 <script>

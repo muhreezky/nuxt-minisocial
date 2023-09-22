@@ -22,7 +22,7 @@
 				{{ link[1] }}
 			</v-list-item-title>
 		</v-list-item>
-		<v-list-item v-if="$auth.loggedIn" href="#" @click.prevent="logout">
+		<v-list-item v-if="$auth.loggedIn" @click.prevent="logout">
 			<v-list-item-icon class="mx-auto">
 				<v-icon>mdi-logout</v-icon>
 			</v-list-item-icon>

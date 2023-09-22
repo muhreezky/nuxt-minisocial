@@ -1,5 +1,16 @@
 <template>
 	<v-form @submit.prevent="submitForm">
+		<v-card-title>
+			<div>
+				{{ register ? "Buat Akun" : "Login" }}
+			</div>
+			<v-spacer />
+			<div>
+				<v-btn nuxt text :to="register ? '/login' : '/register'">
+					{{ register ? "Sudah punya akun? Login" : "Belum punya akun? Buat sekarang" }}
+				</v-btn>
+			</div>
+		</v-card-title>
 		<v-card-text>
 			<v-text-field
 				v-model="email"
@@ -97,7 +108,7 @@ export default {
 
 				this.$router.push('/me')
 			} catch (e) {
-				this.error = 'Gagal membuat akun, cek internet anda atau gunakan e-mail atau username lain';
+				this.error = 'Gagal membuat akun, cek internet anda atau gunakan e-mail/username lain';
 			}
 		},
 		async login() {

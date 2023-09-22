@@ -9,9 +9,9 @@
 			</v-card-title>
 			<v-divider />
 			<v-card-text>
-				<v-container>
-					<v-img max-width="100%" max-height="100%" :lazy-src="post.mediaUrl" :src="post.mediaUrl" :alt="post.caption" />
-				</v-container>
+				<div class="d-flex justify-center align-center">
+					<v-img max-width="80%" :lazy-src="post.mediaUrl" :src="post.mediaUrl" :alt="post.caption" />
+				</div>
 			</v-card-text>
 			<v-divider />
 			<v-card-actions>
