@@ -1,13 +1,14 @@
 <template>
   <v-app>
     <my-app-bar />
-    <nav-drawer />
+    <!-- <nav-drawer /> -->
     <v-main>
       <v-container fluid>
         <Nuxt />
       </v-container>
     </v-main>
-    <foot-comp />
+    <!-- <foot-comp /> -->
+    <speed-dial />
   </v-app>
 </template>
 
