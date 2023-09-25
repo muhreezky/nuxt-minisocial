@@ -1,15 +1,7 @@
 <template>
 	<v-list class="d-flex justify-center align-center" style="width:100%;" rounded>
-		<v-list-item v-for="l in links" :key="l[0]" :to="l[0]" exact nuxt>
-			<v-list-item-icon class="mx-auto">
-				<v-icon>{{ l[2] }}</v-icon>
-			</v-list-item-icon>
-			<v-list-item-title :class="display">
-				{{ l[1] }}
-			</v-list-item-title>
-		</v-list-item>
 		<v-list-item
-			v-for="link in listLinks"
+			v-for="link in links"
 			:key="link[0]"
 			:to="link[0]"
 			nuxt
@@ -34,8 +26,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
 	name: 'NavList',
 	data() {
@@ -43,20 +33,10 @@ export default {
 			links: [
 				['/', 'Home', 'mdi-home'],
 				['/about', 'Tentang', 'mdi-information'],
-			],
-			authedLinks: [['/me', 'My Account', 'mdi-account-box']],
-			guestLinks: [
-				['/login', 'Login', 'mdi-login'],
-				['/register', 'Register', 'mdi-account-plus'],
+				['/me', 'My Account', 'mdi-account-box'],
 			],
 			display: 'd-none d-lg-flex'
 		}
-	},
-	computed: {
-		...mapGetters(['isAuthenticated']),
-		listLinks() {
-			return this.isAuthenticated ? this.authedLinks : this.guestLinks
-		},
 	},
 	methods: {
 		async logout() {

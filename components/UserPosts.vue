@@ -9,7 +9,7 @@
 		>
 			<template #default>
 				<v-row
-					v-if="!isLoading || posts.length > 0"
+					v-if="$fetchState.pending || posts.length > 0"
 					justify="center"
 					no-gutters
 				>
@@ -30,7 +30,7 @@
 			:loading="isLoading"
 			color="primary darken-1"
 			block
-			@click="getPosts"
+			@click="$fetch"
 		>
 			{{ loadButtonText }}
 		</v-btn>
@@ -59,6 +59,9 @@ export default {
 			isError: false,
 		}
 	},
+	async fetch() {
+		await this.getPosts();
+	},
 	computed: {
 		loadButtonText() {
 			return this.isLoading
@@ -71,9 +74,6 @@ export default {
 			return this.$store.state.posts;
 		},
 	},
-	mounted() {
-		this.getPosts();
-	},
 	methods: {
 		...mapMutations(['addToPosts']),
 		async getPosts() {
@@ -84,7 +84,6 @@ export default {
 				)
 				if (this.after !== data.after) {
 					this.posts.push(...data.posts);
-					// this.addToPosts(data.posts);
 					this.after = data.after
 				}
 				this.fetchedPostsLength = data.posts.length;

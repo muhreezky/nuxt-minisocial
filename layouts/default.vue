@@ -1,13 +1,11 @@
 <template>
   <v-app>
     <my-app-bar />
-    <!-- <nav-drawer /> -->
     <v-main>
       <v-container fluid>
         <Nuxt />
       </v-container>
     </v-main>
-    <!-- <foot-comp /> -->
     <speed-dial />
   </v-app>
 </template>
@@ -15,13 +13,6 @@
 <script>
 export default {
   name: 'DefaultLayout',
-  data() {
-    return {
-      menuOpen: false,
-      title: 'MiniSocial',
-      drawerOpen: false,
-    }
-  },
 }
 </script>
 

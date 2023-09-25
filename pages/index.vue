@@ -1,12 +1,5 @@
 <template>
   <v-card>
-    <!-- <v-img
-      max-width="100%"
-      alt="Ekspresi dan Sosialisasikan" 
-      max-height="300px"
-      :lazy-src="imageLink"
-      :src="imageLink"
-    /> -->
     <v-card-title>
       Sosialisasikan diri anda di internet
     </v-card-title>
@@ -26,10 +19,5 @@
 <script>
 export default {
   name: 'IndexPage',
-  data () {
-    return {
-      imageLink: require('~/assets/mountain-image.jpg')
-    }
-  }
 }
 </script>

@@ -8,9 +8,13 @@
 				{{ post.user.username }}
 			</v-card-title>
 			<v-divider />
-			<v-card-text>
+			<v-card-text class="d-flex flex-column" style="gap: 7px;">
 				<div class="d-flex justify-center align-center">
 					<v-img max-width="80%" :lazy-src="post.mediaUrl" :src="post.mediaUrl" :alt="post.caption" />
+				</div>
+				<v-divider />
+				<div class="text-h6">
+					{{ post.caption }}
 				</div>
 			</v-card-text>
 			<v-divider />
