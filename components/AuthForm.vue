@@ -48,7 +48,9 @@
 			</v-alert>
 		</v-card-text>
 		<v-card-actions>
-			<v-btn type="submit" color="primary" block>{{ register ? "Buat Akun" : "Login" }}</v-btn>
+			<v-btn :disabled="isLoading" :loading="isLoading" type="submit" color="primary" block>
+				{{ register ? "Buat Akun" : "Login" }}
+			</v-btn>
 		</v-card-actions>
 	</v-form>
 </template>
@@ -63,6 +65,7 @@ export default {
 	},
 	data() {
 		return {
+			isLoading: false,
 			email: '',
 			username: '',
 			password: '',
@@ -99,14 +102,7 @@ export default {
 					username: this.username,
 				})
 
-				await this.$auth.loginWith('local', {
-					data: {
-						email: this.email,
-						password: this.password,
-					},
-				})
-
-				this.$router.push('/me')
+				await this.login();
 			} catch (e) {
 				this.error = 'Gagal membuat akun, cek internet anda atau gunakan e-mail/username lain';
 			}
@@ -126,7 +122,9 @@ export default {
 			}
 		},
 		async submitForm() {
+			this.isLoading = true;
 			await (this.register ? this.registerForm : this.login)();
+			this.isLoading = false;
 		},
 	},
 }

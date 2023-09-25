@@ -1,6 +1,6 @@
 <template>
 	<v-app-bar app>
-		<v-btn variant="text" @click="() => $router.push('/')">
+		<v-btn text @click="() => $router.push('/')">
 			<v-app-bar-title>
 				{{ title }}
 			</v-app-bar-title>
