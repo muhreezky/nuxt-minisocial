@@ -1,5 +1,5 @@
 <template>
-	<v-footer app class="mt-auto pa-0">
+	<v-footer class="mt-auto pa-0" app>
 		<nav-list />
 	</v-footer>
 </template>
