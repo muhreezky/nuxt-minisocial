@@ -6,7 +6,7 @@
         <Nuxt />
       </v-container>
     </v-main>
-    <speed-dial />
+    <speed-dial v-if="$auth.loggedIn" />
   </v-app>
 </template>
 

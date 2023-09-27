@@ -1,5 +1,5 @@
 <template>
-	<v-footer v-if="isAuthenticated" app class="mt-auto pa-0">
+	<v-footer app class="mt-auto pa-0">
 		<nav-list />
 	</v-footer>
 </template>
