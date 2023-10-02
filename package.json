@@ -8,8 +8,8 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:js && yarn lint:prettier",
-    "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
+    "lint": "bun lint:js && bun lint:prettier",
+    "lintfix": "prettier --write --list-different . && bun lint:js --fix",
     "vercel-build": "bun add -g node-gyp"
   },
   "dependencies": {
