@@ -8,9 +8,7 @@
     {
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder",
-      "config": {
-        "serverFiles": ["package.json"]
-      }
+      "config": {}
     }
   ],
   "routes": [

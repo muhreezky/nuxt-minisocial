@@ -8,9 +8,9 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
-    "lint": "bun lint:js && bun lint:prettier",
-    "lintfix": "prettier --write --list-different . && bun lint:js --fix",
-    "vercel-build": "bun add -g node-gyp-build"
+    "lint": "yarn lint:js && yarn lint:prettier",
+    "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
+    "vercel-build": "yarn add -g node-gyp-build"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
