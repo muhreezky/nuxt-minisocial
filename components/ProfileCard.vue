@@ -29,7 +29,10 @@
 									</v-row>
 								</v-col>
 								<v-col v-if="user.id === $auth.user.id" cols="12">
-									<create-post :on-success="() => $router.go()" />
+									<v-btn block color="primary" @click="$router.push('/create')">
+										<v-icon>mdi-plus</v-icon>
+										Upload Postingan
+									</v-btn>
 								</v-col>
 							</v-row>
 						</v-card-text>

@@ -24,7 +24,7 @@ export default {
 			links: [
 				[() => this.$router.push('/'), 'Home', 'mdi-home'],
 				[() => this.$router.push('/about'), 'Tentang', 'mdi-information'],
-				[() => null, 'Baru', 'mdi-plus-box'],
+				[() => this.$router.push('/create'), 'Baru', 'mdi-plus-box'],
 				[() => this.$router.push(`/u/${this.$auth.user.username}`), 'Akun Saya', 'mdi-account-box'],
 				[() => this.logout(), 'Logout', 'mdi-logout']
 			],

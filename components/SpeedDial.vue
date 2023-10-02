@@ -1,5 +1,5 @@
 <template>
-	<v-footer class="mt-auto pa-0" app>
+	<v-footer v-if="isHydrated" class="mt-auto pa-0" app>
 		<nav-list />
 	</v-footer>
 </template>
@@ -9,6 +9,14 @@
 
 	export default {
 		name: 'SpeedDial',
-		computed: mapGetters(['isAuthenticated'])
+		data() {
+			return {
+				isHydrated: false
+			}
+		},
+		computed: mapGetters(['isAuthenticated']),
+		mounted() {
+			this.isHydrated = true;
+		}
 	}
 </script>

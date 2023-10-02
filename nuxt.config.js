@@ -4,7 +4,9 @@ const desc = 'Aplikasi Social Media Sederhana dari MuhReezky';
 
 export default {
   env: {
-    baseUrl: process.env.ENDPOINT || 'http://localhost:5000/api'
+    baseUrl: process.env.ENDPOINT || 'http://localhost:5000/api',
+    supabaseKey: process.env.SUPABASE_KEY,
+    supabaseUrl: process.env.SUPABASE_URL,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -47,7 +49,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/uploadfile.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -69,10 +71,9 @@ export default {
 
   publicRuntimeConfig: {
     vgyKey: process.env.VGY_ME_KEY,
-    imgBBKey: process.env.IMGBB_KEY,
-    postImgKey: process.env.POSTIMG_TOKEN,
-    pixeldrainKey: process.env.PIXELDRAIN_KEY,
-    uploadSess: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    supabaseKey: process.env.SUPABASE_KEY,
+    supabaseUrl: process.env.SUPABASE_URL,
+    bucketUrl: process.env.BUCKET_URL
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
