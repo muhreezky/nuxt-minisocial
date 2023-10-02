@@ -1,11 +1,16 @@
 <template>
 	<v-container>
 		<v-card>
-			<v-card-title class="d-flex flex-row justify-start align-center" style="gap: 10px;">
-				<v-avatar size="28">
-					<v-img :lazy-src="post.user.imageUrl" :src="post.user.imageUrl" max-width="30" max-height="30" :alt="post.user.username + ' avatar'" />
-				</v-avatar>
-				{{ post.user.username }}
+			<v-card-title class="d-flex justify-between" style="gap: 10px;">
+				<div class="d-flex flex-row justify-start align-center">
+					<v-avatar size="28">
+						<v-img :lazy-src="post.user.imageUrl" :src="post.user.imageUrl" max-width="30" max-height="30" :alt="post.user.username + ' avatar'" />
+					</v-avatar>
+					{{ post.user.username }}
+				</div>
+				<div>
+					<v-btn color="error">Delete</v-btn>
+				</div>
 			</v-card-title>
 			<v-divider />
 			<v-card-text class="d-flex flex-column" style="gap: 7px;">
