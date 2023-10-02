@@ -10,7 +10,7 @@
     "lint:prettier": "prettier --check .",
     "lint": "bun lint:js && bun lint:prettier",
     "lintfix": "prettier --write --list-different . && bun lint:js --fix",
-    "vercel-build": "bun add -g node-gyp"
+    "vercel-build": "bun add -g node-gyp-build"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
