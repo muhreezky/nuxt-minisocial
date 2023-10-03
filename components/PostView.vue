@@ -1,8 +1,8 @@
 <template>
 	<v-container>
 		<v-card>
-			<v-card-title class="d-flex justify-between" style="gap: 10px;">
-				<div class="d-flex flex-row justify-start align-center">
+			<v-card-title class="d-flex" style="justify-content: space-between;">
+				<div class="d-flex flex-row justify-start align-center" style="gap: 10px;">
 					<v-avatar size="28">
 						<v-img :lazy-src="post.user.imageUrl" :src="post.user.imageUrl" max-width="30" max-height="30" :alt="post.user.username + ' avatar'" />
 					</v-avatar>

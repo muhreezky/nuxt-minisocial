@@ -1,13 +1,12 @@
 <template>
-	<v-col class="my-2">
+	<v-col class="my-2" style="flex-grow: 0;">
 		<v-card
-			height="100%"
-			class="d-flex flex-column justify-center align-center ma-3"
+			class="postcard"
 			@click="$router.push(`/p/${post.id}`)"
 		>
 			<v-img
-				max-width="200"
-				max-height="200"
+				width="100%"
+				height="100%"
 				:lazy-src="post.mediaUrl"
 				:src="post.mediaUrl"
 			/>
@@ -23,3 +22,22 @@ export default {
 	},
 }
 </script>
+
+<style scoped>
+	.postcard {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	@media (max-width: 640px) {
+		.postcard {
+			width: calc(100vh / 5);
+			height: calc(100vh / 5);
+		}
+	}
+	@media (min-width: 641px) {
+		.postcard {
+			width: calc(100vw / 5);
+			height: calc(100vw / 5);
+		}
+	}
+</style>

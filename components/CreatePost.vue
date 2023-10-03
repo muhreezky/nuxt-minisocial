@@ -43,10 +43,11 @@ export default {
 			const file = formData.get('file');
 			if (!file.size) return;
 			this.loading = true;
-			const { data, error } = await this.$uploadFile(file);
+			const res = await this.$uploadFile(file);
 			e.target.reset();
-			if (!error) {
-				await this.$axios.$post('/posts', { url: `${this.$config.bucketUrl}/${data.path}`, caption: this.caption });
+			const key = encodeURIComponent(res.Key);
+			if (!res.statusCode) {
+				await this.$axios.$post('/posts', { url: `${this.$config.bucketBase}/public/${key}`, caption: this.caption });
 			} 
 			this.$router.push('/');
 			this.openDialog = false;

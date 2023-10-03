@@ -7,6 +7,7 @@ export default {
     baseUrl: process.env.ENDPOINT || 'http://localhost:5000/api',
     supabaseKey: process.env.SUPABASE_KEY,
     supabaseUrl: process.env.SUPABASE_URL,
+    bucketUrl: process.env.BUCKET_URL
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -73,7 +74,8 @@ export default {
     vgyKey: process.env.VGY_ME_KEY,
     supabaseKey: process.env.SUPABASE_KEY,
     supabaseUrl: process.env.SUPABASE_URL,
-    bucketUrl: process.env.BUCKET_URL
+    bucketUrl: process.env.BUCKET_URL,
+    bucketBase: process.env.BUCKET_BASEURL
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

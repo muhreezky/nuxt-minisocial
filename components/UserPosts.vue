@@ -8,18 +8,22 @@
 			:loading="isLoading && posts.length === 0"
 		>
 			<template #default>
-				<v-row
-					v-if="$fetchState.pending || posts.length > 0"
-					justify="center"
-					no-gutters
-				>
-					<post-card v-for="post in posts" :key="post.id" :post="post" />
-				</v-row>
-				<div
-					v-else
-					class="text-h5 d-flex justify-center align-center"
-				>
-					<div v-if="!isLoading" class="ma-auto pa-5">Belum ada postingan</div>
+				<div class="ma-auto">		
+					<v-row
+						v-if="$fetchState.pending || posts.length > 0"
+						justify="start"
+						class="mx-auto"
+						align="center"
+						no-gutters
+					>
+						<post-card v-for="post in posts" :key="post.id" :post="post" />
+					</v-row>
+					<div
+						v-else
+						class="text-h5 d-flex justify-center align-center"
+					>
+						<div v-if="!isLoading" class="ma-auto pa-5">Belum ada postingan</div>
+					</div>
 				</div>
 			</template>
 		</v-skeleton-loader>
