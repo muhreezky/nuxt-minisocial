@@ -116,7 +116,7 @@ export default {
 					},
 				});
 
-				this.$router.push('/me');
+				this.$router.push(`/u/${this.$auth.user.username}`);
 			} catch (e) {
 				this.error = 'Login gagal, mungkin data anda salah';
 			}

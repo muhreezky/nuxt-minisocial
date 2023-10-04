@@ -1,6 +1,6 @@
 <template>
 	<v-container>
-		<v-card>
+		<v-card class="ma-auto" max-width="800px">
 			<v-card-title class="d-flex" style="justify-content: space-between;">
 				<div class="d-flex flex-row justify-start align-center" style="gap: 10px;">
 					<v-avatar size="28">
@@ -9,16 +9,16 @@
 					{{ post.user.username }}
 				</div>
 				<div>
-					<v-btn color="error">Delete</v-btn>
+					<post-menu-dialog v-if="$auth.user.id === post.userId" />
 				</div>
 			</v-card-title>
 			<v-divider />
 			<v-card-text class="d-flex flex-column" style="gap: 7px;">
 				<div class="d-flex justify-center align-center">
-					<v-img max-width="80%" :lazy-src="post.mediaUrl" :src="post.mediaUrl" :alt="post.caption" />
+					<v-img max-width="100%" :lazy-src="post.mediaUrl" :src="post.mediaUrl" :alt="post.caption" />
 				</div>
 				<v-divider />
-				<div class="text-h6">
+				<div class="text-subtitle-1">
 					{{ post.caption }}
 				</div>
 			</v-card-text>

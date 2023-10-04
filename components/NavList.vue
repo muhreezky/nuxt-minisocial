@@ -3,8 +3,10 @@
 		<v-list-item
 			v-for="link in links"
 			:key="link[1]"
+			:to="link[0]"
+			nuxt
+			exact
 			class="mb-0"
-			@click.prevent="link[0]"
 		>
 			<v-list-item-icon class="mx-auto">
 				<v-icon>{{ link[2] }}</v-icon>
@@ -22,11 +24,11 @@ export default {
 	data() {
 		return {
 			links: [
-				[() => this.$router.push('/'), 'Home', 'mdi-home'],
-				[() => this.$router.push('/about'), 'Tentang', 'mdi-information'],
-				[() => this.$router.push('/create'), 'Baru', 'mdi-plus-box'],
-				[() => this.$router.push(`/u/${this.$auth.user.username}`), 'Akun Saya', 'mdi-account-box'],
-				[() => this.logout(), 'Logout', 'mdi-logout']
+				['/', 'Home', 'mdi-home'],
+				['/about', 'Tentang', 'mdi-information'],
+				['/create', 'Baru', 'mdi-plus-box'],
+				[`/u/${this.$auth.user.username}`, 'Akun Saya', 'mdi-account-box'],
+				['/myaccount', 'Akun', 'mdi-account']
 			],
 			display: 'd-none d-lg-flex'
 		}

@@ -45,9 +45,9 @@ export default {
 			this.loading = true;
 			const res = await this.$uploadFile(file);
 			e.target.reset();
-			const key = encodeURIComponent(res.Key);
+			const { Key } = res;
 			if (!res.statusCode) {
-				await this.$axios.$post('/posts', { url: `${this.$config.bucketBase}/public/${key}`, caption: this.caption });
+				await this.$axios.$post('/posts', { url: `${this.$config.bucketBase}/public/${Key}`, caption: this.caption });
 			} 
 			this.$router.push('/');
 			this.openDialog = false;
