@@ -1,16 +1,22 @@
 <template>
 	<v-card class="ma-auto" max-width="1000px">
 		<v-card-title class="text-h5">
-			Account Settings
+			Akun Saya
 		</v-card-title>
-		<v-card-body class="d-flex flex-column pa-3" style="gap: 10px;">
-			<v-btn v-for="(attr, key) in buttons" :key="key" block @click="attr[1]">
-				<v-icon>
-					{{ attr[2] }}
-				</v-icon>
-				{{ attr[0] }}
-			</v-btn>
-		</v-card-body>
+		<v-card-text class="d-flex flex-column pa-3" style="gap: 10px;">
+			<v-list>
+				<v-list-item v-for="(attr, key) in buttons" :key="key" @click="attr[1]">
+					<v-list-item-icon>
+						<v-icon>
+							{{ attr[2] }}
+						</v-icon>
+					</v-list-item-icon>
+					<v-list-item-title>
+						{{ attr[0] }}
+					</v-list-item-title>
+				</v-list-item>
+			</v-list>
+		</v-card-text>
 	</v-card>
 </template>
 
@@ -23,7 +29,7 @@
 				buttons: [
 					['Edit Profil', () => this.changeUser(), 'mdi-pencil-circle'],
 					['Logout', () => this.$auth.logout(), 'mdi-logout'],
-					['Hapus Akun Saya', () => this.deleteAccount(), 'mdi-trash']
+					['Hapus Akun Saya', () => this.deleteAccount(), 'mdi-delete']
 				]
 			}
 		},

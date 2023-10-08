@@ -27,17 +27,7 @@ export default {
 	.postcard {
 		margin-left: 5px;
 		margin-right: 5px;
-	}
-	@media (max-width: 640px) {
-		.postcard {
-			width: calc(100vh / 5);
-			height: calc(100vh / 5);
-		}
-	}
-	@media (min-width: 641px) {
-		.postcard {
-			width: calc(100vw / 5);
-			height: calc(100vw / 5);
-		}
+		width: calc(100vw / 5);
+		height: calc(100vw / 5);
 	}
 </style>

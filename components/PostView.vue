@@ -1,21 +1,37 @@
 <template>
 	<v-container>
 		<v-card class="ma-auto" max-width="800px">
-			<v-card-title class="d-flex" style="justify-content: space-between;">
-				<div class="d-flex flex-row justify-start align-center" style="gap: 10px;">
+			<v-card-title class="d-flex" style="justify-content: space-between">
+				<nuxt-link
+					class="d-flex flex-row justify-start align-center"
+					:to="`/u/${post.user.username}`"
+					style="gap: 10px;"
+				>
 					<v-avatar size="28">
-						<v-img :lazy-src="post.user.imageUrl" :src="post.user.imageUrl" max-width="30" max-height="30" :alt="post.user.username + ' avatar'" />
+						<v-img
+							:lazy-src="post.user.imageUrl"
+							loading="lazy"
+							:src="post.user.imageUrl"
+							max-width="30"
+							max-height="30"
+							:alt="post.user.username + ' avatar'"
+						/>
 					</v-avatar>
 					{{ post.user.username }}
-				</div>
+				</nuxt-link>
 				<div>
-					<post-menu-dialog v-if="$auth.user.id === post.userId" />
+					<post-menu-dialog :user-id="post.userId" :post-id="post.id" />
 				</div>
 			</v-card-title>
 			<v-divider />
-			<v-card-text class="d-flex flex-column" style="gap: 7px;">
+			<v-card-text class="d-flex flex-column" style="gap: 7px">
 				<div class="d-flex justify-center align-center">
-					<v-img max-width="100%" :lazy-src="post.mediaUrl" :src="post.mediaUrl" :alt="post.caption" />
+					<v-img
+						max-width="100%"
+						:lazy-src="post.mediaUrl"
+						:src="post.mediaUrl"
+						:alt="post.caption"
+					/>
 				</div>
 				<v-divider />
 				<div class="text-subtitle-1">
@@ -38,19 +54,25 @@
 </template>
 
 <script>
-	export default {
-		name: 'PostView',
-		props: {
-			post: Object({}),
-		},
-		data() {
-			return {
-				actions: [
-					["Like", "mdi-heart-outline"],
-					["Comment", "mdi-comment-outline"],
-					["Share", "mdi-share"]
-				]
-			}
+export default {
+	name: 'PostView',
+	props: {
+		post: Object({}),
+	},
+	data() {
+		return {
+			actions: [
+				['Like', 'mdi-heart-outline'],
+				['Comment', 'mdi-comment-outline'],
+				['Share', 'mdi-share'],
+			],
 		}
-	}
+	},
+}
 </script>
+
+<style scoped>
+	a {
+		color: inherit;
+	}
+</style>

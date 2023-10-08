@@ -1,5 +1,5 @@
 <template>
-	<v-list class="d-flex flex-row justify-center align-center" style="width:100%;" rounded>
+	<v-list class="d-flex flex-row justify-center align-center ma-0" style="width:100%;" rounded>
 		<v-list-item
 			v-for="link in links"
 			:key="link[1]"
@@ -32,11 +32,6 @@ export default {
 			],
 			display: 'd-none d-lg-flex'
 		}
-	},
-	methods: {
-		async logout() {
-			await this.$auth.logout()
-		},
 	},
 }
 </script>
