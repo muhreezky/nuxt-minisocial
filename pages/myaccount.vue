@@ -27,9 +27,10 @@
 		data() {
 			return {
 				buttons: [
-					['Edit Profil', () => this.changeUser(), 'mdi-pencil-circle'],
+					['Ubah Username', this.changeUsername, 'mdi-account-circle'],
+					['Edit Bio', this.changeBio, 'mdi-pencil-circle'],
 					['Logout', () => this.$auth.logout(), 'mdi-logout'],
-					['Hapus Akun Saya', () => this.deleteAccount(), 'mdi-delete']
+					['Hapus Akun Saya', this.deleteAccount, 'mdi-delete']
 				]
 			}
 		},
@@ -37,8 +38,30 @@
 			deleteAccount() {
 				return null;
 			},
-			changeUser() {
-				return null;
+			async changeUsername() {
+				const { value: username, isConfirmed } = await this.$swal.fire({
+					title: 'Ganti username',
+					input: 'text',
+					inputLabel: 'Username : ',
+					inputPlaceholder: 'Masukkan username di sini'
+				})
+				if (!username) return null;
+				const { data } = await this.$axios.$put('/auth/me/username', { username });
+				if (!data) return null;
+				if (isConfirmed)
+					this.$auth.logout();
+			},
+			async changeBio() {
+				const { value: biotext, isConfirmed } = await this.$swal.fire({
+					title: 'Edit Bio Anda',
+					input: 'textarea',
+					inputLabel: 'Bio : ',
+					inputPlaceholder: 'Ketikkan sesuatu di sini'
+				});
+				const { data } = await this.$axios.$put('/auth/me/bio', { biotext });
+				if (!data) return null;
+				if(isConfirmed)
+					this.$auth.logout();
 			}
 		}
 	}

@@ -9,6 +9,7 @@
 								@{{ username }}
 							</div>
 						</v-card-title>
+						<v-divider />
 						<v-card-text>
 							<v-row align="center" justify="center">
 								<v-col>
@@ -28,14 +29,18 @@
 										</v-col>
 									</v-row>
 								</v-col>
-								<v-col v-if="user.id === $auth.user.id" cols="12">
-									<v-btn block color="primary" @click="$router.push('/create')">
-										<v-icon>mdi-plus</v-icon>
-										Upload Postingan
-									</v-btn>
-								</v-col>
 							</v-row>
+							<div class="text-h6">
+								{{ user.bioText }}
+							</div>
 						</v-card-text>
+						<v-divider />
+						<v-card-actions v-if="user.id === $auth.user.id">
+							<v-btn block color="primary" @click="$router.push('/create')">
+								<v-icon>mdi-plus</v-icon>
+								Upload Postingan
+							</v-btn>
+						</v-card-actions>
 					</v-card>
 				</div>
 			</template>
