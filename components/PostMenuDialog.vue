@@ -7,7 +7,7 @@
 		</template>
 		<v-card v-if="$auth.user.id === userId">
 			<v-card-title>
-				Post Menu
+				Postingan Anda
 			</v-card-title>
 			<v-divider/>
 			<v-card-text class="pa-0">
@@ -33,8 +33,8 @@
 		data() {
 			return {
 				listItems: [
-					["Delete Post", () => this.deletePost()],
-					["Edit Caption", () => this.editPost()],
+					["Hapus Postingan", () => this.deletePost()],
+					["Ubah Teks Caption", () => this.editPost()],
 				],
 				dialog: false
 			}
