@@ -27,8 +27,8 @@ export default {
 				['/', 'Home', 'mdi-home'],
 				['/about', 'Tentang', 'mdi-information'],
 				['/create', 'Baru', 'mdi-plus-box'],
-				[`/u/${this.$auth.user.username}`, 'Akun Saya', 'mdi-account-box'],
-				['/myaccount', 'Akun', 'mdi-account']
+				[`/u/${this.$auth.user.username}`, 'Akun Saya', 'mdi-account-circle'],
+				['/myaccount', 'Akun', 'mdi-cog']
 			],
 			display: 'd-none d-lg-flex'
 		}
