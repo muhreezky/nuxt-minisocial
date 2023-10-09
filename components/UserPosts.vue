@@ -42,7 +42,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex';
 
 export default {
 	name: 'UserPosts',
@@ -59,8 +58,8 @@ export default {
 			after: '',
 			posts: [],
 			innerWidth: 0,
-			fetchedPostsLength: 0,
 			isError: false,
+			fetchedPostsLength: 0
 		}
 	},
 	async fetch() {
@@ -74,12 +73,8 @@ export default {
 				? 'Selesai'
 				: 'Buka Lebih Banyak'
 		},
-		globalPosts() {
-			return this.$store.state.posts;
-		},
 	},
 	methods: {
-		...mapMutations(['addToPosts']),
 		async getPosts() {
 			try {
 				this.isLoading = true;

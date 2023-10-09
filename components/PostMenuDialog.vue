@@ -35,7 +35,6 @@
 				listItems: [
 					["Delete Post", () => this.deletePost()],
 					["Edit Caption", () => this.editPost()],
-					["Copy Link", () => this.copyLink()]
 				],
 				dialog: false
 			}
@@ -61,8 +60,22 @@
 					console.error(e);
 				}
 			},
-			editPost: () => null,
-			copyLink: () => null
+			async editPost() {
+				try {
+					this.dialog = false;
+					const { value: caption, isConfirmed } = await this.$swal.fire({
+						text: 'Edit Caption Postingan Anda : ',
+						input: 'textarea',
+						inputPlaceholder: 'Tulis caption di sini',
+						title: 'Caption Postingan',
+					});
+					if (!isConfirmed) return null;
+					await this.$axios.$put(`/posts/${this.postId}`, { caption });
+					this.$router.go(0);
+				} catch (e) {
+					console.error(e);
+				}
+			}
 		}
 	}
 </script>

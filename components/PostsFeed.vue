@@ -27,7 +27,7 @@
 		async fetch() {
 			try {
 				this.isLoading = true;
-				const { data } = await this.$axios.$get(`/posts`);
+				const { data } = await this.$axios.$get('/posts');
 				this.posts = data.posts;
 			} catch (e) {
 				this.isError = true;
