@@ -41,14 +41,13 @@
 			<v-alert v-if="!!error" type="error" dismissible>
 				{{ error }}
 			</v-alert>
+			<v-btn nuxt text block :to="register ? '/login' : '/register'">
+				{{ register ? "Sudah punya akun? Login" : "Belum punya akun? Buat sekarang" }}
+			</v-btn>
 		</v-card-text>
 		<v-card-actions>
 			<v-btn :disabled="isLoading" :loading="isLoading" type="submit" color="primary" block>
 				{{ register ? "Buat Akun" : "Login" }}
-			</v-btn>
-			<v-divider />
-			<v-btn nuxt text block :to="register ? '/login' : '/register'">
-				{{ register ? "Sudah punya akun? Login" : "Belum punya akun? Buat sekarang" }}
 			</v-btn>
 		</v-card-actions>
 	</v-form>
