@@ -38,7 +38,7 @@
 					{{ post.caption }}
 				</div>
 			</v-card-text>
-			<v-divider />
+			<!-- <v-divider />
 			<v-card-actions>
 				<v-row justify="center" no-gutters>
 					<v-col v-for="(a, i) in actions" :key="i">
@@ -48,7 +48,7 @@
 						</v-btn>
 					</v-col>
 				</v-row>
-			</v-card-actions>
+			</v-card-actions> -->
 		</v-card>
 	</v-container>
 </template>
